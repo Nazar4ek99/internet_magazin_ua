@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтернет-магазин</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        h1 {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product p {
+            color: #555;
+            font-size: 14px;
+        }
+        .product strong {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+            color: #28a745;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+            transition: 0.3s;
+        }
+        .cart {
+            background: #28a745;
+            color: white;
+        }
+        .cart:hover {
+            background: #218838;
+        }
+        .cart-container {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+        }
+        .cart-items {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-total {
+            font-size: 18px;
+            margin: 10px 0;
+            text-align: right;
+        }
+        .checkout {
+            background: #ff5733;
+            color: white;
+            width: 100%;
+        }
+        .checkout:hover {
+            background: #c44126;
+        }
+        .search-bar {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛒 Інтернет-магазин</h1>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Пошук товарів..." oninput="filterProducts()" />
+    </div>
+    <div class="container" id="productContainer">
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" alt="Ноутбук">
+            <h2>MacBook Air M2</h2>
+            <p>Потужний ноутбук для роботи та навчання</p>
+            <strong>₴49,999</strong>
+            <button class="btn cart" onclick="addToCart('MacBook Air M2', 49999)">Додати в кошик</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/81X1Y7p4GUL._AC_SL1500_.jpg" alt="Ноутбук">
+            <h2>ASUS ROG Strix G16</h2>
+            <p>Ігровий ноутбук з RTX 4060</p>
+            <strong>₴59,999</strong>
+            <button class="btn cart" onclick="addToCart('ASUS ROG Strix G16', 59999)">Додати в кошик</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71TPTzIQbBL._AC_SL1500_.jpg" alt="Монітор">
+            <h2>LG UltraGear 27”</h2>
+            <p>Монітор 144 Гц для геймерів</p>
+            <strong>₴14,999</strong>
+            <button class="btn cart" onclick="addToCart('LG UltraGear 27”', 14999)">Додати в кошик</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/81kaG4xqQHL._AC_SL1500_.jpg" alt="Ноутбук">
+            <h2>Lenovo ThinkPad X1</h2>
+            <p>Бізнес-ноутбук з Intel i7</p>
+            <strong>₴44,999</strong>
+            <button class="btn cart" onclick="addToCart('Lenovo ThinkPad X1', 44999)">Додати в кошик</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/81H0L9XEqbL._AC_SL1500_.jpg" alt="Мишка">
+            <h2>Logitech G Pro X</h2>
+            <p>Професійна ігрова мишка</p>
+            <strong>₴4,999</strong>
+            <button class="btn cart" onclick="addToCart('Logitech G Pro X', 4999)">Додати в кошик</button>
+        </div>
+    </div>
+</body>
+</html>
+
+    <h1>🛒 Інтернет-магазин</h1>
+
+    <!-- Пошуковий блок -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Пошук товарів..." oninput="filterProducts()" />
+    </div>
+
+    <div class="container" id="productContainer">
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" alt="Ноутбук">
+            <h2>MacBook Air M2</h2>
+            <p>Потужний ноутбук для роботи та навчання</p>
+            <strong>₴49,999</strong>
+            <button class="btn cart" onclick="addToCart('MacBook Air M2', 49999)">Додати в кошик</button>
+        </div>
+
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61KoVazN4SL._AC_SL1500_.jpg" alt="Процесор">
+            <h2>Intel Core i9</h2>
+            <p>Високопродуктивний процесор</p>
+            <strong>₴19,999</strong>
+            <button class="btn cart" onclick="addToCart('Intel Core i9', 19999)">Додати в кошик</button>
+        </div>
+
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61L9nLzUUXL._AC_SL1500_.jpg" alt="Відеокарта">
+            <h2>NVIDIA RTX 4090</h2>
+            <p>Найкраща відеокарта для геймерів</p>
+            <strong>₴79,999</strong>
+            <button class="btn cart" onclick="addToCart('NVIDIA RTX 4090', 79999)">Додати в кошик</button>
+        </div>
+    </div>
+
+    <div class="cart-container">
+        <h2>🛒 Кошик</h2>
+        <div class="cart-items"></div>
+        <div class="cart-total">Загальна сума: ₴0</div>
+        <button class="btn checkout" onclick="showPaymentForm()">Оплатити</button>
+    </div>
+
+    <!-- Форма для введення платіжних даних -->
+    <div class="payment-form" id="paymentForm">
+        <h2>Оплата</h2>
+        <form id="paymentDetails">
+            <label for="cardNumber">Номер картки:</label><br>
+            <input type="text" id="cardNumber" name="cardNumber" required><br><br>
+            <label for="expiryDate">Термін дії (мм/рр):</label><br>
+            <input type="text" id="expiryDate" name="expiryDate" required><br><br>
+            <label for="cvv">CVV:</label><br>
+            <input type="text" id="cvv" name="cvv" required><br><br>
+            <button type="submit" class="btn">Підтвердити оплату</button>
+        </form>
+    </div>
+
+    <script>
+        let cart = [];
+        let totalPrice = 0;
+
+        // Додати товар в кошик
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            totalPrice += price;
+            updateCart();
+        }
+
+        // Оновити кошик
+        function updateCart() {
+            const cartItems = document.querySelector('.cart-items');
+            const cartTotal = document.querySelector('.cart-total');
+            cartItems.innerHTML = '';
+
+            cart.forEach((item) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <span>${item.name}</span>
+                    <span>₴${item.price}</span>
+                `;
+                cartItems.appendChild(itemElement);
+            });
+
+            cartTotal.innerHTML = `Загальна сума: ₴${totalPrice}`;
+        }
+
+        // Показати форму для оплати
+        function showPaymentForm() {
+            if (cart.length === 0) {
+                alert('Ваш кошик порожній!');
+                return;
+            }
+            document.getElementById('paymentForm').style.display = 'block';
+        }
+
+        // Обробка форми оплати
+        document.getElementById('paymentDetails').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert(`Оплата на суму ₴${totalPrice} успішно завершена!`);
+            cart = [];
+            totalPrice = 0;
+            updateCart();
+            document.getElementById('paymentForm').style.display = 'none';
+        });
+
+        // Пошук товарів
+        function filterProducts() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            
+            products.forEach(product => {
+                const productName = product.querySelector('h2').textContent.toLowerCase();
+                if (productName.includes(searchQuery)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
