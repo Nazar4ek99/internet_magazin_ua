@@ -1,278 +1,300 @@
 <!DOCTYPE html>
 <html lang="uk">
+  <head>
+
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+  </head>
+  <amp-auto-ads type="adsense"
+  data-ad-client="ca-pub-9158244358352746">
+</amp-auto-ads>
 <head>
+  <a href="https://www.amazon.com/dp/B08VJ1XG9K?tag=your_affiliate_id">
+    <img src="https://example.com/banner_image.jpg" alt="Your Ad" />
+</a>
+<meta name="google-site-verification" content="your-verification-code" />
+<meta name="google-site-verification" content="your-verification-code" />
+<meta name="google-site-verification" content="your-verification-code" />
+<meta name="google-site-verification" content="your-verification-code" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="your-ad-client-id"
+     data-ad-slot="your-ad-slot-id"
+     data-ad-format="auto"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Інтернет-магазин</title>
+    <title>FPS Прогноз та Порівняння</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            padding: 20px;
             margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            text-align: center;
         }
         h1 {
-            background-color: #007bff;
-            color: white;
-            padding: 15px;
-            margin: 0;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00ffcc;
         }
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+            background-color: #1e1e2f;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.3);
         }
-        .product {
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 250px;
-        }
-        .product img {
+        label, select, button {
+            display: block;
             width: 100%;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        select, button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+        }
+        select {
+            background-color: #2e2e40;
+            color: #fff;
+        }
+        button {
+            background-color: #00ffcc;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.02);
+            background-color: #00ddb3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #2a2a40;
             border-radius: 10px;
+            box-shadow: inset 0 0 10px #00ffcc;
         }
-        .product h2 {
-            font-size: 18px;
-            margin: 10px 0;
+        .language-switcher {
+            text-align: right;
+            margin-bottom: 10px;
         }
-        .product p {
-            color: #555;
+        .language-switcher button {
+            width: auto;
+            margin-left: 10px;
+            padding: 6px 10px;
             font-size: 14px;
         }
-        .product strong {
-            display: block;
-            margin: 10px 0;
-            font-size: 18px;
-            color: #28a745;
-        }
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            border: none;
-            transition: 0.3s;
-        }
-        .cart {
-            background: #28a745;
-            color: white;
-        }
-        .cart:hover {
-            background: #218838;
-        }
-        .cart-container {
-            position: fixed;
-            right: 20px;
-            top: 20px;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: left;
-        }
-        .cart-items {
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .cart-total {
-            font-size: 18px;
-            margin: 10px 0;
-            text-align: right;
-        }
-        .checkout {
-            background: #ff5733;
-            color: white;
-            width: 100%;
-        }
-        .checkout:hover {
-            background: #c44126;
-        }
-        .search-bar {
-            margin: 20px;
+        .tip {
+            margin-top: 10px;
+            font-style: italic;
+            color: #aaa;
         }
     </style>
 </head>
 <body>
-    <h1>🛒 Інтернет-магазин</h1>
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Пошук товарів..." oninput="filterProducts()" />
-    </div>
-    <div class="container" id="productContainer">
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" alt="Ноутбук">
-            <h2>MacBook Air M2</h2>
-            <p>Потужний ноутбук для роботи та навчання</p>
-            <strong>₴49,999</strong>
-            <button class="btn cart" onclick="addToCart('MacBook Air M2', 49999)">Додати в кошик</button>
-        </div>
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/81X1Y7p4GUL._AC_SL1500_.jpg" alt="Ноутбук">
-            <h2>ASUS ROG Strix G16</h2>
-            <p>Ігровий ноутбук з RTX 4060</p>
-            <strong>₴59,999</strong>
-            <button class="btn cart" onclick="addToCart('ASUS ROG Strix G16', 59999)">Додати в кошик</button>
-        </div>
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/71TPTzIQbBL._AC_SL1500_.jpg" alt="Монітор">
-            <h2>LG UltraGear 27”</h2>
-            <p>Монітор 144 Гц для геймерів</p>
-            <strong>₴14,999</strong>
-            <button class="btn cart" onclick="addToCart('LG UltraGear 27”', 14999)">Додати в кошик</button>
-        </div>
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/81kaG4xqQHL._AC_SL1500_.jpg" alt="Ноутбук">
-            <h2>Lenovo ThinkPad X1</h2>
-            <p>Бізнес-ноутбук з Intel i7</p>
-            <strong>₴44,999</strong>
-            <button class="btn cart" onclick="addToCart('Lenovo ThinkPad X1', 44999)">Додати в кошик</button>
-        </div>
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/81H0L9XEqbL._AC_SL1500_.jpg" alt="Мишка">
-            <h2>Logitech G Pro X</h2>
-            <p>Професійна ігрова мишка</p>
-            <strong>₴4,999</strong>
-            <button class="btn cart" onclick="addToCart('Logitech G Pro X', 4999)">Додати в кошик</button>
-        </div>
-    </div>
-</body>
-</html>
-
-    <h1>🛒 Інтернет-магазин</h1>
-
-    <!-- Пошуковий блок -->
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Пошук товарів..." oninput="filterProducts()" />
-    </div>
-
-    <div class="container" id="productContainer">
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" alt="Ноутбук">
-            <h2>MacBook Air M2</h2>
-            <p>Потужний ноутбук для роботи та навчання</p>
-            <strong>₴49,999</strong>
-            <button class="btn cart" onclick="addToCart('MacBook Air M2', 49999)">Додати в кошик</button>
+    <div class="container">
+        <div class="language-switcher">
+            <button onclick="setLanguage('uk')">🇺🇦</button>
+            <button onclick="setLanguage('en')">🇬🇧</button>
+            <button onclick="setLanguage('pl')">🇵🇱</button>
         </div>
 
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/61KoVazN4SL._AC_SL1500_.jpg" alt="Процесор">
-            <h2>Intel Core i9</h2>
-            <p>Високопродуктивний процесор</p>
-            <strong>₴19,999</strong>
-            <button class="btn cart" onclick="addToCart('Intel Core i9', 19999)">Додати в кошик</button>
-        </div>
+        <h1 id="title">🔍 FPS Прогноз та Порівняння</h1>
 
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/61L9nLzUUXL._AC_SL1500_.jpg" alt="Відеокарта">
-            <h2>NVIDIA RTX 4090</h2>
-            <p>Найкраща відеокарта для геймерів</p>
-            <strong>₴79,999</strong>
-            <button class="btn cart" onclick="addToCart('NVIDIA RTX 4090', 79999)">Додати в кошик</button>
-        </div>
-    </div>
+        <label id="label-cpu" for="cpu">Процесор:</label>
+        <select id="cpu">
+            <option value="i9-12900K">Intel Core i9-12900K</option>
+            <option value="i7-12700K">Intel Core i7-12700K</option>
+            <option value="i5-12600K">Intel Core i5-12600K</option>
+            <option value="i3-12100F">Intel Core i3-12100F</option>
+        </select>
 
-    <div class="cart-container">
-        <h2>🛒 Кошик</h2>
-        <div class="cart-items"></div>
-        <div class="cart-total">Загальна сума: ₴0</div>
-        <button class="btn checkout" onclick="showPaymentForm()">Оплатити</button>
-    </div>
+        <label id="label-gpu" for="gpu">Відеокарта:</label>
+        <select id="gpu">
+            <option value="GTX-1650">NVIDIA GTX 1650</option>
+            <option value="RTX-3060">NVIDIA RTX 3060</option>
+            <option value="RTX-3080">NVIDIA RTX 3080</option>
+            <option value="RTX-4090">NVIDIA RTX 4090</option>
+        </select>
 
-    <!-- Форма для введення платіжних даних -->
-    <div class="payment-form" id="paymentForm">
-        <h2>Оплата</h2>
-        <form id="paymentDetails">
-            <label for="cardNumber">Номер картки:</label><br>
-            <input type="text" id="cardNumber" name="cardNumber" required><br><br>
-            <label for="expiryDate">Термін дії (мм/рр):</label><br>
-            <input type="text" id="expiryDate" name="expiryDate" required><br><br>
-            <label for="cvv">CVV:</label><br>
-            <input type="text" id="cvv" name="cvv" required><br><br>
-            <button type="submit" class="btn">Підтвердити оплату</button>
-        </form>
+        <label id="label-game" for="game">Гра:</label>
+        <select id="game">
+            <option value="Fortnite">Fortnite</option>
+            <option value="CS2">Counter-Strike 2</option>
+            <option value="GTA5">GTA V</option>
+        </select>
+
+        <label id="label-quality" for="quality">Якість графіки:</label>
+        <select id="quality">
+            <option value="1080p">1080p</option>
+            <option value="2K">2K</option>
+            <option value="4K">4K</option>
+        </select>
+
+        <button onclick="compareComponents()" id="compare-button">🎮 Показати FPS</button>
+
+        <div id="result"></div>
     </div>
 
     <script>
-        let cart = [];
-        let totalPrice = 0;
+        const tips = {
+            uk: [
+                "Порада: Вимкни V-Sync для кращого FPS!",
+                "Порада: Оновлюй драйвери відеокарти регулярно.",
+                "Порада: Грай у повноекранному режимі для меншої затримки.",
+                "Порада: Уникай перегріву — очищуй кулери.",
+                "Порада: Використовуй швидкість передачі даних PCIe 4.0 для кращої продуктивності.",
+                "Порада: Додай більше оперативної пам'яті для кращої стабільності при високих налаштуваннях графіки.",
+                "Порада: Налаштуй параметри гри для зменшення навантаження на систему."
+            ],
+            en: [
+                "Tip: Disable V-Sync for better FPS!",
+                "Tip: Update your GPU drivers regularly.",
+                "Tip: Play in fullscreen mode for lower input lag.",
+                "Tip: Keep your PC cool to avoid FPS drops.",
+                "Tip: Use PCIe 4.0 data transfer speed for better performance.",
+                "Tip: Add more RAM for better stability at high graphics settings.",
+                "Tip: Adjust game settings to reduce system load."
+            ],
+            pl: [
+                "Wskazówka: Wyłącz V-Sync, aby zwiększyć FPS!",
+                "Wskazówka: Regularnie aktualizuj sterowniki karty graficznej.",
+                "Wskazówka: Graj w trybie pełnoekranowym, aby zmniejszyć opóźnienie.",
+                "Wskazówka: Unikaj przegrzewania — wyczyść wentylatory.",
+                "Wskazówka: Używaj transferu danych PCIe 4.0, aby uzyskać lepszą wydajność.",
+                "Wskazówka: Dodaj więcej pamięci RAM, aby uzyskać lepszą stabilność przy wysokich ustawieniach graficznych.",
+                "Wskazówka: Dostosuj ustawienia gry, aby zmniejszyć obciążenie systemu."
+            ]
+        };
 
-        // Додати товар в кошик
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            totalPrice += price;
-            updateCart();
-        }
-
-        // Оновити кошик
-        function updateCart() {
-            const cartItems = document.querySelector('.cart-items');
-            const cartTotal = document.querySelector('.cart-total');
-            cartItems.innerHTML = '';
-
-            cart.forEach((item) => {
-                const itemElement = document.createElement('div');
-                itemElement.classList.add('cart-item');
-                itemElement.innerHTML = `
-                    <span>${item.name}</span>
-                    <span>₴${item.price}</span>
-                `;
-                cartItems.appendChild(itemElement);
-            });
-
-            cartTotal.innerHTML = `Загальна сума: ₴${totalPrice}`;
-        }
-
-        // Показати форму для оплати
-        function showPaymentForm() {
-            if (cart.length === 0) {
-                alert('Ваш кошик порожній!');
-                return;
+        const translations = {
+            uk: {
+                title: "🔍 FPS Прогноз та Порівняння",
+                cpu: "Процесор:",
+                gpu: "Відеокарта:",
+                game: "Гра:",
+                quality: "Якість графіки:",
+                button: "🎮 Показати FPS"
+            },
+            en: {
+                title: "🔍 FPS Prediction & Comparison",
+                cpu: "CPU:",
+                gpu: "Graphics Card:",
+                game: "Game:",
+                quality: "Graphics Quality:",
+                button: "🎮 Show FPS"
+            },
+            pl: {
+                title: "🔍 Prognoza i Porównanie FPS",
+                cpu: "Procesor:",
+                gpu: "Karta Graficzna:",
+                game: "Gra:",
+                quality: "Jakość grafiki:",
+                button: "🎮 Pokaż FPS"
             }
-            document.getElementById('paymentForm').style.display = 'block';
+        };
+
+        let currentLang = "uk";
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.getElementById("title").textContent = translations[lang].title;
+            document.getElementById("label-cpu").textContent = translations[lang].cpu;
+            document.getElementById("label-gpu").textContent = translations[lang].gpu;
+            document.getElementById("label-game").textContent = translations[lang].game;
+            document.getElementById("label-quality").textContent = translations[lang].quality;
+            document.getElementById("compare-button").textContent = translations[lang].button;
         }
 
-        // Обробка форми оплати
-        document.getElementById('paymentDetails').addEventListener('submit', function (event) {
-            event.preventDefault();
-            alert(`Оплата на суму ₴${totalPrice} успішно завершена!`);
-            cart = [];
-            totalPrice = 0;
-            updateCart();
-            document.getElementById('paymentForm').style.display = 'none';
-        });
+        function compareComponents() {
+            const cpu = document.getElementById("cpu").value;
+            const gpu = document.getElementById("gpu").value;
+            const game = document.getElementById("game").value;
+            const quality = document.getElementById("quality").value;
 
-        // Пошук товарів
-        function filterProducts() {
-            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            const products = document.querySelectorAll('.product');
-            
-            products.forEach(product => {
-                const productName = product.querySelector('h2').textContent.toLowerCase();
-                if (productName.includes(searchQuery)) {
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
+            const key = `${cpu}-${gpu}`;
+
+            const fpsData = {
+                Fortnite: {
+                    "i9-12900K-GTX-1650": { "1080p": 160, "2K": 120, "4K": 85 },
+                    "i9-12900K-RTX-3060": { "1080p": 220, "2K": 170, "4K": 130 },
+                    "i9-12900K-RTX-3080": { "1080p": 280, "2K": 220, "4K": 170 },
+                    "i9-12900K-RTX-4090": { "1080p": 350, "2K": 290, "4K": 240 },
+                    "i7-12700K-GTX-1650": { "1080p": 150, "2K": 110, "4K": 80 },
+                    "i7-12700K-RTX-3060": { "1080p": 210, "2K": 160, "4K": 120 },
+                    "i7-12700K-RTX-3080": { "1080p": 270, "2K": 210, "4K": 160 },
+                    "i7-12700K-RTX-4090": { "1080p": 330, "2K": 270, "4K": 220 },
+                    "i5-12600K-GTX-1650": { "1080p": 140, "2K": 100, "4K": 70 },
+                    "i5-12600K-RTX-3060": { "1080p": 200, "2K": 150, "4K": 110 },
+                    "i5-12600K-RTX-3080": { "1080p": 250, "2K": 190, "4K": 140 },
+                    "i5-12600K-RTX-4090": { "1080p": 300, "2K": 240, "4K": 190 },
+                    "i3-12100F-GTX-1650": { "1080p": 130, "2K": 90, "4K": 60 },
+                    "i3-12100F-RTX-3060": { "1080p": 180, "2K": 140, "4K": 100 },
+                    "i3-12100F-RTX-3080": { "1080p": 230, "2K": 180, "4K": 130 },
+                    "i3-12100F-RTX-4090": { "1080p": 280, "2K": 220, "4K": 170 }
+                },
+                CS2: {
+                    "i9-12900K-GTX-1650": { "1080p": 250, "2K": 200, "4K": 150 },
+                    "i9-12900K-RTX-3060": { "1080p": 300, "2K": 240, "4K": 190 },
+                    "i9-12900K-RTX-3080": { "1080p": 380, "2K": 310, "4K": 250 },
+                    "i9-12900K-RTX-4090": { "1080p": 450, "2K": 370, "4K": 300 },
+                    "i7-12700K-GTX-1650": { "1080p": 230, "2K": 180, "4K": 130 },
+                    "i7-12700K-RTX-3060": { "1080p": 280, "2K": 220, "4K": 170 },
+                    "i7-12700K-RTX-3080": { "1080p": 340, "2K": 270, "4K": 210 },
+                    "i7-12700K-RTX-4090": { "1080p": 400, "2K": 320, "4K": 250 },
+                    "i5-12600K-GTX-1650": { "1080p": 210, "2K": 160, "4K": 120 },
+                    "i5-12600K-RTX-3060": { "1080p": 260, "2K": 200, "4K": 150 },
+                    "i5-12600K-RTX-3080": { "1080p": 320, "2K": 250, "4K": 190 },
+                    "i5-12600K-RTX-4090": { "1080p": 380, "2K": 300, "4K": 240 },
+                    "i3-12100F-GTX-1650": { "1080p": 200, "2K": 150, "4K": 110 },
+                    "i3-12100F-RTX-3060": { "1080p": 240, "2K": 180, "4K": 130 },
+                    "i3-12100F-RTX-3080": { "1080p": 290, "2K": 230, "4K": 170 },
+                    "i3-12100F-RTX-4090": { "1080p": 340, "2K": 270, "4K": 210 }
+                },
+                GTA5: {
+                    "i9-12900K-GTX-1650": { "1080p": 140, "2K": 110, "4K": 75 },
+                    "i9-12900K-RTX-3060": { "1080p": 190, "2K": 150, "4K": 110 },
+                    "i9-12900K-RTX-3080": { "1080p": 250, "2K": 200, "4K": 150 },
+                    "i9-12900K-RTX-4090": { "1080p": 320, "2K": 270, "4K": 220 },
+                    "i7-12700K-GTX-1650": { "1080p": 130, "2K": 100, "4K": 70 },
+                    "i7-12700K-RTX-3060": { "1080p": 170, "2K": 130, "4K": 90 },
+                    "i7-12700K-RTX-3080": { "1080p": 220, "2K": 180, "4K": 130 },
+                    "i7-12700K-RTX-4090": { "1080p": 270, "2K": 220, "4K": 170 },
+                    "i5-12600K-GTX-1650": { "1080p": 110, "2K": 80, "4K": 55 },
+                    "i5-12600K-RTX-3060": { "1080p": 150, "2K": 110, "4K": 80 },
+                    "i5-12600K-RTX-3080": { "1080p": 190, "2K": 150, "4K": 100 },
+                    "i5-12600K-RTX-4090": { "1080p": 240, "2K": 190, "4K": 140 },
+                    "i3-12100F-GTX-1650": { "1080p": 100, "2K": 70, "4K": 50 },
+                    "i3-12100F-RTX-3060": { "1080p": 130, "2K": 100, "4K": 70 },
+                    "i3-12100F-RTX-3080": { "1080p": 170, "2K": 130, "4K": 90 },
+                    "i3-12100F-RTX-4090": { "1080p": 210, "2K": 160, "4K": 120 }
                 }
-            });
-        }
-    </script>
+            };
 
+            const fps = fpsData[game][key][quality];
+
+            document.getElementById("result").innerHTML = `
+                <h2>Прогноз FPS:</h2>
+                <p>Для ${game} на процесорі ${cpu} з відеокартою ${gpu} в якості графіки ${quality}: <strong>${fps} FPS</strong></p>
+                <p class="tip">${tips[currentLang][Math.floor(Math.random() * tips[currentLang].length)]}</p>
+            `;
+        }
+
+        
+    </script>
 </body>
 </html>
-
 
